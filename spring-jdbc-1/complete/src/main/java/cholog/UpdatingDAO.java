@@ -49,8 +49,7 @@ public class UpdatingDAO {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(
-                    "insert into customers (first_name, last_name) values (?, ?)",
-                    new String[]{"id"});
+                    sql, new String[]{"id"});
             ps.setString(1, customer.getFirstName());
             ps.setString(2, customer.getLastName());
             return ps;
